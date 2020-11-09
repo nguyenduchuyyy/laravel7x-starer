@@ -2,33 +2,9 @@
 
 @section('content')
 
-<?php
-// echo "<pre>";
-// print_r($products);
-?>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+<h2>Products</h2>
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-</head>
-<body>
-
-<h2>HTML Table</h2>
-
-<table>
+<table class="table">
     <thead>
         <th>Name</th>
         <th>Description</th>
@@ -50,6 +26,8 @@ tr:nth-child(even) {
     </tbody>
 </table>
 
-{{ $products->links() }}
+<div class="mt-3">
+    {{ $products->links() }}
+</div>
 
 @endsection
