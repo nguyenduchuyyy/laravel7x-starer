@@ -38,7 +38,23 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        // return view('products.create');
+        $product = Product::find($id);
+        return view('products.edit',[
+            'product' => $product
+        ]);
+    }
+
+    public function update($id, ProductCreateRequest $request)
+    {
+        $product = Product::find($id);
+
+        try {
+            $product->update($request->all());
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return redirect(route('products.index'));
     }
 
     public function delete($id)
