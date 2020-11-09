@@ -2,10 +2,22 @@
 
 @section('content')
 
-<h2>Products</h2>
+
+<div class="col-md-12 my-3 ">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Products</h2>
+        </div>
+        <div class="col-md-6 text-right">
+            <a class="btn btn-success" href="{{route('products.create')}}"> Add </a>
+        </div>
+    </div>
+    
+</div>
 
 <table class="table">
     <thead>
+        <th>ID</th>
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
@@ -15,7 +27,7 @@
         <?php if(!empty($products)): ?>
             <?php foreach ($products as $product): ?>
             <tr>
-            
+                <th>{{$product->id}}</th>
                 <th>{{$product->name}}</th>
                 <th>{{$product->description}}</th>
                 <th>{{$product->price}}</th>

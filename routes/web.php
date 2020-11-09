@@ -18,7 +18,12 @@ Route::get('/', function () {
 });
 Route::get('/home', 'Home@index');
 
-Route::get('/product', 'ProductController@index');
+Route::get('/products', 'ProductController@index')->name('products.index');
+
+Route::get('/products/create', 'ProductController@create')->name('products.create');
+
+Route::post('/products/store', 'ProductController@store')->name('products.store');
+
 
 Route::get('blade', function () {
     return view('child');
