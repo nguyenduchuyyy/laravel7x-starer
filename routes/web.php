@@ -24,6 +24,11 @@ Route::get('/products/create', 'ProductController@create')->name('products.creat
 
 Route::post('/products/store', 'ProductController@store')->name('products.store');
 
+Route::put('/products/{id}', 'ProductController@edit')->name('products.edit');
+
+Route::delete('/products/{id}', 'ProductController@delete')->name('products.delete');
+
+
 
 Route::get('blade', function () {
     return view('child');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\Requests\ProductCreateRequest;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ProductController extends Controller
 {
@@ -24,15 +26,27 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-    public function store(Request $request)
+    public function store(ProductCreateRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:12',
-            'price' => 'required',
-            'description' => 'required',
-        ]);
-        Product::create($validatedData);
- 
+        try {
+            Product::create($request->all());
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return redirect(route('products.index'));
+    }
+
+    public function edit($id)
+    {
+        // return view('products.create');
+    }
+
+    public function delete($id)
+    {   
+        $product = Product::find($id);
+        if(!empty($product)){
+            $product->delete();
+        }
         return redirect(route('products.index'));
     }
 }

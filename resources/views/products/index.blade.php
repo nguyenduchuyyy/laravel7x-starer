@@ -21,6 +21,9 @@
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
+        <th>Update</th>
+        <th>Delete</th>
+        
     </thead>
 
     <tbody>
@@ -31,6 +34,15 @@
                 <th>{{$product->name}}</th>
                 <th>{{$product->description}}</th>
                 <th>{{$product->price}}</th>
+                <th><a class="btn btn-info" href="{{route('products.edit',[$product->id])}}"> Edit </a></th>
+                <th>
+                    <form action="{{route('products.delete',[$product->id])}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="_method" value="delete">
+                        <button type="submit" class="btn btn-danger" > Delete </button>
+                    </form>
+                </th>
+
                 <!-- <th>{{$product->created_at}}</th>    -->
             </tr>
             <?php endforeach; ?>
