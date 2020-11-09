@@ -10,6 +10,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        echo "ProductController";
+        $products = Product::all();
+        return view('products.index',[
+            'products' => $products
+        ]);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function getList(){
-        return Product->get();
-    }
+    protected $fillable = ['name', 'price', 'descpription']; 
+
+
 }
