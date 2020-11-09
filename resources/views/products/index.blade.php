@@ -46,5 +46,5 @@ tr:nth-child(even) {
             <?php endforeach; ?>
         <?php endif; ?>
     </tbody>
-  
 </table>
+{{ $products->links() }}
