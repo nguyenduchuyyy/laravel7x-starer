@@ -8,10 +8,10 @@ class Home extends Controller
 {
     public function index() {
     	//insert data
-    	$product = new Product();
-    	$product->id = '33';
+    	// $product = new Product();
+    	// $product->id = '33';
 
-    	$product->save();
+    	// $product->save();
 
     	echo "HOME";
     	$data = [

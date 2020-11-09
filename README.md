@@ -59,3 +59,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## TO DO
+
+- [ ] Product management.
+	- Database: create products table.
+	- Create Model: Product 
+	- Create Controller: ProductController
+	- Create views: products (index - List, show - Detail, Create, Update, Delete popup)
+	- Test functional.
