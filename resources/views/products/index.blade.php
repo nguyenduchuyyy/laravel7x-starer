@@ -1,4 +1,6 @@
-Products
+@extends('layouts.app')
+
+@section('content')
 
 <?php
 // echo "<pre>";
@@ -47,4 +49,7 @@ tr:nth-child(even) {
         <?php endif; ?>
     </tbody>
 </table>
+
 {{ $products->links() }}
+
+@endsection

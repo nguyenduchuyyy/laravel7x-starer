@@ -20,3 +20,6 @@ Route::get('/home', 'Home@index');
 
 Route::get('/product', 'ProductController@index');
 
+Route::get('blade', function () {
+    return view('child');
+});
