@@ -10,20 +10,21 @@
         </div>
     @endif
     <!-- <form action="{{route('products.update')}}" method="POST"> -->
-    {{Form::model($product, array('route' => array('products.update', $product->id)))}}
+    {{Form::model($product, array('route' => array('products.update', [$product->id])))}}
         @method('PUT')    
         @csrf
+        <!-- <input type="hidden" name="id" value="{{$product->id}}"> -->
         <div class="form-group">
             <label for="exampleInputEmail1">Product Name</label>
-            <input type="text" class="form-control" name="name" aria-describedby="emailHelp" >
+            <input type="text" class="form-control" name="name" aria-describedby="emailHelp" value="{{$product->name}}">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Price</label>
-            <input type="number" class="form-control" name="price" >
+            <input type="number" class="form-control" name="price" value="{{$product->price}}">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Description</label>
-            <textarea class="form-control" rows="4" cols="50" name="description" ></textarea>
+            <textarea class="form-control" rows="4" cols="50" name="description" >{{$product->description}}</textarea>
         </div>
         
 
