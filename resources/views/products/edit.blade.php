@@ -13,7 +13,7 @@
     {{Form::model($product, array('route' => array('products.update', [$product->id])))}}
         @method('PUT')    
         @csrf
-        <!-- <input type="hidden" name="id" value="{{$product->id}}"> -->
+        <input type="hidden" name="id" value="{{$product->id}}">
         <div class="form-group">
             <label for="exampleInputEmail1">Product Name</label>
             <input type="text" class="form-control" name="name" aria-describedby="emailHelp" value="{{$product->name}}">
