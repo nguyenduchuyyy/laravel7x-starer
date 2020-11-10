@@ -44,10 +44,11 @@ class ProductController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(ProductCreateRequest $request,$id)
     {
+        dd($id);exit();
         $product = Product::find($request->id);
-        //  dd($request);
+        
         try {
             $product->update($request->all());
         } catch (ModelNotFoundException $exception) {

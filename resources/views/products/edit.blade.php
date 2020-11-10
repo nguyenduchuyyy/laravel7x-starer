@@ -9,7 +9,7 @@
             @endforeach
         </div>
     @endif
-    <!-- <form action="{{route('products.update')}}" method="POST"> -->
+   
     {{Form::model($product, array('route' => array('products.update', [$product->id])))}}
         @method('PUT')    
         @csrf
