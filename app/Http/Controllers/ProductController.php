@@ -46,8 +46,7 @@ class ProductController extends Controller
 
     public function update(ProductCreateRequest $request,$id)
     {
-        dd($id);exit();
-        $product = Product::find($request->id);
+        $product = Product::find($id);
         
         try {
             $product->update($request->all());
