@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API\V1;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\Resources\ProductsResource;
+
 
 
 class ProductApiController extends Controller
@@ -20,9 +22,12 @@ class ProductApiController extends Controller
         $sortBy = $request->input('sortby','id');
         $sortDir = $request->input('sortdir','desc');
         $page_size =$request->input('page_size',10);
-        $products = Product::orderBy($sortBy,$sortDir)->paginate($page_size);
-        return $products;
-        
+        $products = Product::select('*')->orderBy($sortBy,$sortDir)->paginate($page_size);
+        // return response()->json($products);
+
+        // Business here
+
+        return new ProductsResource($products);        
     }
 
     /**
