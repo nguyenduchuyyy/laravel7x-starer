@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Requests\ProductCreateRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     public function index(Request $request)
@@ -64,5 +64,11 @@ class ProductController extends Controller
             $product->delete();
         }
         return redirect(route('products.index'));
+    }
+
+    public function select_one($id)
+    {   
+        $results = DB::select('select * from products where id = :id', ['id' => $id]);
+        dd($results);
     }
 }

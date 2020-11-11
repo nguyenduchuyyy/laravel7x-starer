@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/selects/{id}', 'ProductController@select_one')->name('select_one');
+
 Route::group(['middleware' => ['auth']], function () {
     include_once('admin/product.php');
 });
