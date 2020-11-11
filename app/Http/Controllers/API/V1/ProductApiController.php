@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Resources\ProductsResource;
+use App\Http\Resources\ProductResource;
 
 
 
@@ -59,7 +60,8 @@ class ProductApiController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        return new ProductResource($product);        
     }
 
     /**
