@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/home', 'Home@index');
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['auth']], function () {
     include_once('admin/product.php');
 });
 
@@ -26,3 +26,7 @@ Route::get('blade', function () {
     return view('child');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
