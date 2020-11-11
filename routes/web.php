@@ -25,3 +25,4 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('blade', function () {
     return view('child');
 });
+
