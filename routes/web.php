@@ -18,8 +18,9 @@ Route::get('/', function () {
 });
 Route::get('/home', 'Home@index');
 
-include_once('admin/product.php');
-
+Route::group(['middleware' => ['web']], function () {
+    include_once('admin/product.php');
+});
 
 Route::get('blade', function () {
     return view('child');

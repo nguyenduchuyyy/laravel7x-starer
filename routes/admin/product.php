@@ -1,7 +1,7 @@
 <?php
 /** START - Products */
-// Route::prefix('products')->name('products.')->middleware('auth')->group(function () {
-Route::prefix('products')->name('products.')->group(function () {
+Route::prefix('products')->name('products.')->middleware('localproduct')->group(function () {
+// Route::prefix('products')->name('products.')->group(function () {
 
     Route::get('', 'ProductController@index')->name('index');
 
