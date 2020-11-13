@@ -49,7 +49,7 @@ class ProductApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Product::create($request->all());
     }
 
     /**
@@ -72,7 +72,7 @@ class ProductApiController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 
     }
 
     /**
@@ -85,6 +85,9 @@ class ProductApiController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $product = Product::find($id);
+        $product->update($request->all());
+        print_r($product);
     }
 
     /**
@@ -95,6 +98,15 @@ class ProductApiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        if($product){
+            $result = $product->delete();
+            if($result){
+                echo "Product id = ". $id ." deleted";
+            }
+        }
+        else{
+            echo "Don't have id = ".$id;
+        }
     }
 }
