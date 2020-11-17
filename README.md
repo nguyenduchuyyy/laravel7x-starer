@@ -59,11 +59,16 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
+## SET UP
+- create file .env from .env.example
+- composer install
+- Create database suitable with .env
+- php artisan migrate
+- php artisan db:seed
 
 ## TO DO
 
-- [ ] Product management.
+- [x] Product management.
 	- Database: create products table.
 	- Create Model: Product 
 	- Create Controller: ProductController
