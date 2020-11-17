@@ -18,5 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'API\V1'], function () {
+    Route::get('products/test_repository/{id}', 'ProductApiController@test_repository');
     Route::apiResource('products', 'ProductApiController');
 });

@@ -7,11 +7,22 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Resources\ProductsResource;
 use App\Http\Resources\ProductResource;
-
+use App\Repositories\Product\ProductRepositoryInterface;
 
 
 class ProductApiController extends Controller
 {
+    protected $productRepo;
+
+    public function __construct(ProductRepositoryInterface $productRepo)
+    {
+        $this->productRepo = $productRepo;
+    }
+    public function test_repository($id)
+    {
+        $products = $this->productRepo->getProductWithId($id);
+        return $products;
+    }
     /**
      * Display a listing of the resource.
      *
