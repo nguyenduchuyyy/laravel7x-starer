@@ -16,7 +16,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('lte.home.home');
 });
 
 Route::get('/selects/{id}', 'ProductController@select_one')->name('select_one');
