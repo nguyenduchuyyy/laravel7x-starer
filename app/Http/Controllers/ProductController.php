@@ -16,6 +16,20 @@ class ProductController extends Controller
         $sortDir = $request->input('sortdir','desc');
         
         $products = Product::orderBy($sortBy,$sortDir)->paginate(5);
+        return view('lte.home.home',[
+            'products' => $products
+        ]);
+    }
+    public function add()
+    {
+        return view('lte.home.add');
+    }
+    public function index1(Request $request)
+    {
+        $sortBy = $request->input('sortby','id');
+        $sortDir = $request->input('sortdir','desc');
+        
+        $products = Product::orderBy($sortBy,$sortDir)->paginate(5);
         return view('products.index',[
             'products' => $products
         ]);
@@ -63,7 +77,7 @@ class ProductController extends Controller
         if(!empty($product)){
             $product->delete();
         }
-        return redirect(route('products.index'));
+        return redirect(route('product'));
     }
 
     public function select_one($id)

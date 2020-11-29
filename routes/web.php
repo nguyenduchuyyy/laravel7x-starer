@@ -22,6 +22,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/', function () {
         return view('lte.home.home');
     });
+    Route::get('/', 'ProductController@index')->name('product');
+    Route::get('/add', 'ProductController@add')->name('addproduct');
 });
 
 

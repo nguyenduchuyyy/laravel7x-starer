@@ -3,7 +3,7 @@
 Route::prefix('products')->name('products.')->middleware('localproduct:admin')->group(function () {
 // Route::prefix('products')->name('products.')->group(function () {
 
-    Route::get('', 'ProductController@index')->name('index');
+    Route::get('', 'ProductController@index1')->name('index');
 
     Route::get('create', 'ProductController@create')->name('create');
     Route::post('store', 'ProductController@store')->name('store');
