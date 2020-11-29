@@ -1,5 +1,6 @@
 @extends('lte.main')
 @section('body')
+
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -31,6 +32,18 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+      <li>
+        <div>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+        </div>
+      </li>
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">

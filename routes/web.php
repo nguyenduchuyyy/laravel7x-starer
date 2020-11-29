@@ -15,14 +15,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    return view('lte.home.home');
-});
-
 Route::get('/selects/{id}', 'ProductController@select_one')->name('select_one');
 
 Route::group(['middleware' => ['auth']], function () {
     include_once('admin/product.php');
+    Route::get('/', function () {
+        return view('lte.home.home');
+    });
 });
 
 
