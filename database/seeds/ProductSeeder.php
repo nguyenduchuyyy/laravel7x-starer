@@ -16,13 +16,14 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $products = [];
-        for ($i=0; $i < 5; $i++) { 
+        for ($i=0; $i < 15; $i++) { 
             $products[] = [
                 'name' => 'Product '.$i,
                 'price' => rand(7,8),
                 'description' => 'Description '.$i,
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'logo_url' => '',
             ];
         }
 
