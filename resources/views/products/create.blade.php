@@ -9,7 +9,7 @@
     @endforeach
 </div>
 @endif
-<form action="{{route('products.store')}}" method="POST">
+<form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="exampleInputEmail1">Product Name</label>
@@ -24,7 +24,7 @@
         <textarea class="form-control" rows="4" cols="50" name="description"></textarea>
     </div>
     <div class="row">
-        <input name="photo" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0]);
+        <input id="logo_url" name="logo_url" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0]);
         $('#output').removeAttr('hidden');">
     </div>
     <div class="row pb-5">

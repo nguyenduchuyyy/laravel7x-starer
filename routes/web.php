@@ -24,6 +24,8 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::get('/', 'ProductController@index')->name('product');
     Route::get('/add', 'ProductController@add')->name('addproduct');
+    Route::get('file','FileController@index');
+    Route::post('file','Filecontroller@doUpload');
 });
 
 
